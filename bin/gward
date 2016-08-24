@@ -17,7 +17,7 @@ die "--exec option is required\n" unless $exec;
 @dirs   = "."           unless @dirs;
 @ignore = qw(.swp .tmp) unless @ignore;
 
-my $skip = sprintf "(?:%s)", join "|", map { quotemeta $_ } @ignore;
+my $skip = sprintf "(?:%s)", join "|", map quotemeta, @ignore;
 
 my $notify = AnyEvent::Filesys::Notify->new(
   dirs   => \@dirs,
